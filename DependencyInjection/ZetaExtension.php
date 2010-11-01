@@ -28,7 +28,7 @@ class ZetaExtension extends Extension
         $loader = new XmlFileLoader($builder, __DIR__.'/../Resources/config');
         $loader->load('zetaSearch.xml');
 
-        foreach (array('solr', 'zendlucense', 'xml-manager') AS $comp) {
+        foreach (array('solr', 'zendlucene', 'xml-manager') AS $comp) {
             if (isset($config[$comp])) {
                 $builder->setParameters($config[$comp]);
             }

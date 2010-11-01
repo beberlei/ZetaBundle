@@ -13,7 +13,7 @@
 
 namespace Bundle\ZetaBundle;
 
-use Symfony\Framework\Bundle\Bundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Bundle\ZetaBundle\DependencyInjection\ZetaExtension;
 use Symfony\Component\DependencyInjection\Loader\Loader;
