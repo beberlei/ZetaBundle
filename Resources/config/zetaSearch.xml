@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="zeta.search.session.class">ezcSearchSession</parameter>
+        <parameter key="zeta.search.manager.embedded.class">ezcSearchEmbeddedManager</parameter>
+        <parameter key="zeta.search.manager.xml.class">ezcSearchXmlManager</parameter>
+        <parameter key="zeta.search.handler.solr.class">ezcSearchSolrHandler</parameter>
+        <parameter key="zeta.search.handler.zendlucene.class">ezcSearchZendLuceneHandler</parameter>
+        
+        <parameter key="zeta.search.xml-manager.path"></parameter>
+        <parameter key="zeta.search.solr.host">localhost</parameter>
+        <parameter key="zeta.search.solr.port">8983</parameter>
+        <parameter key="zeta.search.solr.location">/solr</parameter>
+        <parameter key="zeta.search.zendlucene.data_dir">/tmp/lucene</parameter>
+    </parameters>
+    
+    <services>
+        <service id="zeta.search.session" class="%zeta.search.session.class%">
+            <argument type="service" id="zeta.search.handler" />
+            <argument type="service" id="zeta.search.manager" />
+        </service>
+
+        <service id="zeta.search.manager.embedded" class="%zeta.search.manager.embedded.class%" />
+        <service id="zeta.search.manager.xml" class="%zeta.search.manager.xml.class%">
+            <argument>%zeta.search.xml-manager.path%</argument>
+        </service>
+
+        <service id="zeta.search.handler.solr" class="%zeta.search.handler.solr.class%">
+            <argument>%zeta.search.solr.host%</argument>
+            <argument>%zeta.search.solr.port%</argument>
+            <argument>%zeta.search.solr.location%</argument>
+        </service>
+
+        <service id="zeta.search.handler.zendlucene" class="%zeta.search.handler.zendlucene.class%">
+            <argument>%zeta.search.zendlucene.data_dir%</argument>
+        </service>
+
+        <service alias="zeta.search.handler.zend" id="zeta.search.handler" />
+        <service alias="zeta.search.manager.embedded" id="zeta.search.manager" />
+    </services>
+
+</container>
