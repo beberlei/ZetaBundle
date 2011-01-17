@@ -30,7 +30,7 @@ class ZetaExtension extends Extension
 
         foreach (array('solr', 'zendlucene', 'xml-manager') AS $comp) {
             if (isset($config[$comp])) {
-                $builder->setParameters($config[$comp]);
+                $builder->setParameter($comp, $config[$comp]);
             }
         }
 
