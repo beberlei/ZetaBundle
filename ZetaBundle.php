@@ -31,4 +31,14 @@ class ZetaBundle extends Bundle
     {
         Loader::registerExtension(new ZetaExtension());
     }
+
+    public function getNamespace()
+    {
+        return __NAMESPACE__;
+    }
+
+    public function getPath()
+    {
+        return strtr(__DIR__, '\\', '/');
+    }
 }
