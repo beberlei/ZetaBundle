@@ -29,8 +29,8 @@ Open up your `src/autoload.php` file and add the Zeta Components Autoloader:
     require_once "Base/base.php";
     spl_autoload_register( array( 'ezcBase', 'autoload' ) );
 
-This tells Syfmony2 where it can locate your `ezcBase` class. Since ZetaComponents does not
-yet follow the PSG-0 Naming standards its autoloader has to be attached manually.
+This tells Symfony2 where it can locate your `ezcBase` class. Since ZetaComponents does not
+yet follow the PSR-0 Naming standards its autoloader has to be attached manually.
 
 See the Zeta Components documentation for more information how to enable autoloading.
 
